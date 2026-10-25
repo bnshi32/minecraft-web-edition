@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minecraft Web — Etapa 1</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: monospace; color: #fff; }
+      canvas { display: block; image-rendering: pixelated; }
+      #overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        background: rgba(0,0,0,.55); cursor: pointer; text-align: center; line-height: 1.6; }
+      #overlay.hidden { display: none; }
+      #crosshair { position: fixed; left: 50%; top: 50%; width: 18px; height: 18px; transform: translate(-50%,-50%); pointer-events: none; mix-blend-mode: difference; }
+      #crosshair::before, #crosshair::after { content: ""; position: absolute; background: #fff; }
+      #crosshair::before { left: 8px; top: 0; width: 2px; height: 18px; }
+      #crosshair::after { top: 8px; left: 0; height: 2px; width: 18px; }
+      #hotbar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; }
+      .slot { width: 64px; padding: 10px 0; text-align: center; font-size: 11px; background: rgba(0,0,0,.5); border: 3px solid #555; }
+      .slot.sel { border-color: #fff; }
+      #debug { position: fixed; top: 8px; left: 8px; white-space: pre; font-size: 13px; background: rgba(0,0,0,.4); padding: 6px 8px; display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="crosshair"></div>
+    <div id="hotbar"></div>
+    <div id="debug"></div>
+    <div id="overlay">
+      <h1>Minecraft Web — Etapa 1</h1>
+      <div>Click para jugar</div>
+      <div style="opacity:.8;margin-top:12px">
+        WASD mover · Espacio saltar · Shift agacharse<br />
+        Doble W (o Ctrl) correr · 1-5 bloque · Click izq romper / der poner · B bobbing · F3 debug
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
